@@ -1,0 +1,304 @@
+/* Terminal Theme - Home (Improved Readability) */
+.home {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Subtle CRT Scanlines */
+.home::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* CRT Glow effect */
+.home::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, transparent 0%, rgba(0, 0, 0, 0.3) 100%);
+  pointer-events: none;
+  z-index: 99;
+}
+
+.background-canvas,
+.cyber-grid {
+  display: none;
+}
+
+.content {
+  position: relative;
+  z-index: 10;
+  width: 100%;
+  max-width: 800px;
+  padding: 60px 2rem 2rem 2rem;
+  margin: 0 auto;
+}
+
+/* Terminal Window */
+.hero-text {
+  background: #111111;
+  border: 1px solid #333;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 
+    0 0 40px rgba(51, 255, 51, 0.08),
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+/* Terminal Title Bar */
+.title-container {
+  background: linear-gradient(180deg, #2a2a2a 0%, #222222 100%);
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.title-container::before {
+  content: '';
+  width: 14px;
+  height: 14px;
+  background: #ff5f57;
+  border-radius: 50%;
+  box-shadow: 
+    22px 0 0 #febc2e,
+    44px 0 0 #28c840;
+}
+
+/* Terminal Title */
+.main-title {
+  font-size: 0.9rem;
+  color: #888;
+  margin: 0;
+  margin-left: auto;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+.main-title::before,
+.main-title::after {
+  display: none;
+}
+
+/* Terminal Content */
+.sub-title {
+  display: none;
+}
+
+.title-line {
+  display: none;
+}
+
+/* Terminal Output - Better Readability */
+.description {
+  padding: 2rem 2rem 1.5rem 2rem;
+  margin: 0;
+  font-size: 1.1rem;
+  line-height: 2;
+  color: #e0e0e0;
+  border: none;
+  background: none;
+  letter-spacing: 0.3px;
+}
+
+.description::before {
+  content: '$ whoami' "\A" '> jaivik_joshi' "\A" '> role: Software Engineer Intern' "\A\A" '$ cat about.txt' "\A" '> ';
+  white-space: pre;
+  display: block;
+  color: #33ff33;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+
+/* Blinking Cursor */
+.description::after {
+  content: '█';
+  animation: blink 1s step-end infinite;
+  color: #33ff33;
+  font-size: 1.1rem;
+}
+
+@keyframes blink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* Terminal Social Links - Inside Terminal Window */
+.social-links {
+  padding: 1.5rem 2rem;
+  border-top: 1px dashed #333;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.social-links::before {
+  content: '$ ls -la ~/links/';
+  display: block;
+  color: #33ff33;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: #33ff33;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.6rem 0;
+  transition: all 0.2s ease;
+  background: none;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  min-width: auto;
+}
+
+.social-links a::before {
+  content: 'drwxr-xr-x  jaivik  staff';
+  color: #666;
+  font-size: 0.9rem;
+  min-width: 200px;
+}
+
+.social-links a i {
+  display: none;
+}
+
+.social-links a span {
+  color: #00bfff;
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.social-links a:hover {
+  background: rgba(51, 255, 51, 0.08);
+  padding-left: 1rem;
+  margin-left: -1rem;
+  padding-right: 1rem;
+  border-radius: 4px;
+}
+
+.social-links a:hover span {
+  color: #33ff33;
+  text-decoration: underline;
+}
+
+/* Resume Section */
+.resume-section {
+  padding: 1.5rem 2rem 2rem 2rem;
+  border-top: 1px dashed #333;
+}
+
+.resume-section::before {
+  content: '$ cat ~/downloads/';
+  display: block;
+  color: #33ff33;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  background: transparent;
+  border: 2px solid #33ff33;
+  color: #33ff33;
+  text-decoration: none;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resume-btn:hover {
+  background: #33ff33;
+  color: #0a0a0a;
+  box-shadow: 0 0 20px rgba(51, 255, 51, 0.4);
+  transform: translateY(-2px);
+}
+
+.resume-icon {
+  font-size: 1.2rem;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
+
+/* Hide decorative elements */
+.content::before,
+.content::after,
+.hero-text::before,
+.hero-text::after {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .content {
+    padding: 60px 1rem 2rem 1rem;
+  }
+
+  .description {
+    font-size: 1rem;
+    padding: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .social-links {
+    padding: 1.25rem 1.5rem;
+  }
+
+  .social-links a::before {
+    min-width: 140px;
+    font-size: 0.8rem;
+  }
+
+  .social-links a span {
+    font-size: 0.9rem;
+  }
+
+  .resume-section {
+    padding: 1.25rem 1.5rem 1.5rem 1.5rem;
+  }
+
+  .resume-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1.5rem;
+    font-size: 0.9rem;
+  }
+}

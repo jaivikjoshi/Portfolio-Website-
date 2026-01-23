@@ -1,0 +1,358 @@
+/* Terminal Theme - App (Improved Readability) */
+.app-container {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  background: #0a0a0a;
+}
+
+/* Horizontal Scroll Container */
+.horizontal-scroll-container {
+  display: flex;
+  flex-direction: row;
+  width: 400vw;
+  height: 100vh;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hide scrollbar */
+.horizontal-scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.horizontal-scroll-container {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Each horizontal section */
+.horizontal-section {
+  min-width: 100vw;
+  width: 100vw;
+  height: 100vh;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Terminal scrollbar */
+.horizontal-section::-webkit-scrollbar {
+  width: 10px;
+}
+
+.horizontal-section::-webkit-scrollbar-track {
+  background: #111;
+}
+
+.horizontal-section::-webkit-scrollbar-thumb {
+  background: #33ff33;
+  border-radius: 5px;
+}
+
+.horizontal-section::-webkit-scrollbar-thumb:hover {
+  background: #28cc28;
+}
+
+/* Terminal Navigation */
+.cyber-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 0;
+  padding: 0;
+  background: #111111;
+  border-bottom: 1px solid #2a2a2a;
+  z-index: 1000;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+}
+
+.nav-prompt {
+  color: #33ff33;
+  padding: 0.75rem 1.25rem;
+  font-size: 0.95rem;
+  border-right: 1px solid #2a2a2a;
+  font-weight: 500;
+}
+
+.nav-links-desktop {
+  display: flex;
+}
+
+.nav-links-desktop button {
+  background: transparent;
+  border: none;
+  border-right: 1px solid #2a2a2a;
+  color: #888;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-size: 0.95rem;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 0.75rem 1.25rem;
+  transition: all 0.2s ease;
+}
+
+.nav-links-desktop button:hover {
+  background: rgba(51, 255, 51, 0.1);
+  color: #33ff33;
+}
+
+.nav-links-desktop button.active {
+  background: #33ff33;
+  color: #0a0a0a;
+}
+
+/* Hamburger Button */
+.hamburger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.hamburger-line {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: #33ff33;
+  transition: all 0.3s ease;
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-btn.open .hamburger-line:nth-child(3) {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile Menu Overlay */
+.mobile-menu-overlay {
+  position: fixed;
+  top: 48px;
+  right: 0;
+  width: 280px;
+  height: calc(100vh - 48px);
+  background: #0a0a0a;
+  border-left: 1px solid #33ff33;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+}
+
+.mobile-menu-content {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.mobile-menu-content button {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #2a2a2a;
+  color: #888;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-size: 1.1rem;
+  font-weight: normal;
+  cursor: pointer;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.mobile-menu-content button:hover {
+  background: rgba(51, 255, 51, 0.1);
+  color: #33ff33;
+}
+
+.mobile-menu-content button.active {
+  background: rgba(51, 255, 51, 0.15);
+  color: #33ff33;
+  border-left: 3px solid #33ff33;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav-links-desktop {
+    display: none;
+  }
+
+  .hamburger-btn {
+    display: flex;
+  }
+
+  .nav-prompt {
+    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+  }
+
+  .navigation-dots {
+    right: 1rem;
+    bottom: 1rem;
+    padding: 8px 10px;
+  }
+
+  .scroll-indicators {
+    right: 1rem;
+    bottom: 4.5rem;
+  }
+
+  .scroll-indicator-fixed {
+    padding: 0.4rem 0.8rem;
+  }
+
+  .scroll-indicator-fixed span {
+    font-size: 0.75rem;
+  }
+}
+
+/* Bottom Right Navigation Container */
+.navigation-dots {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  display: flex;
+  gap: 0.6rem;
+  z-index: 1000;
+  padding: 10px 14px;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+}
+
+.navigation-dots::before {
+  content: '[';
+  color: #33ff33;
+  font-size: 0.9rem;
+}
+
+.navigation-dots::after {
+  content: ']';
+  color: #33ff33;
+  font-size: 0.9rem;
+}
+
+.nav-dot {
+  width: auto;
+  height: auto;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+  color: #444;
+  padding: 0 3px;
+}
+
+.nav-dot::before {
+  content: '■';
+}
+
+.nav-dot:hover {
+  color: #33ff33;
+}
+
+.nav-dot.active {
+  color: #33ff33;
+  width: auto;
+  text-shadow: 0 0 10px #33ff33;
+}
+
+/* Scroll Indicators - Positioned above navigation dots */
+.scroll-indicators {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  z-index: 1000;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+}
+
+.scroll-indicator-fixed {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.scroll-indicator-fixed:hover {
+  border-color: #33ff33;
+  box-shadow: 0 0 15px rgba(51, 255, 51, 0.2);
+}
+
+.scroll-indicator-fixed span {
+  color: #33ff33;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* Arrow styling */
+.scroll-arrow-right,
+.scroll-arrow-left {
+  display: none;
+}
+
+/* Right/Explore button arrow */
+.scroll-indicator-fixed.scroll-right::after {
+  content: '→';
+  color: #33ff33;
+  font-size: 1rem;
+}
+
+/* Left/Back button arrow */
+.scroll-indicator-fixed.scroll-left::before {
+  content: '←';
+  color: #33ff33;
+  font-size: 1rem;
+}
+
+.scroll-indicator-fixed.scroll-left::after {
+  content: none;
+}
+
+.scroll-left span {
+  color: #33ff33;
+}
+
+.scroll-left:hover {
+  border-color: #33ff33;
+}
+
+@keyframes terminalBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}

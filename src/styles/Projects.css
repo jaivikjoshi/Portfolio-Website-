@@ -1,0 +1,305 @@
+/* Terminal Theme - Projects (Improved Readability) */
+.projects-container {
+  min-height: 100vh;
+  padding: 100px 2rem 4rem 2rem;
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Subtle CRT Scanlines */
+.projects-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+.projects-container::after {
+  display: none;
+}
+
+.projects-title {
+  font-size: 1.1rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  color: #33ff33;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.projects-title::before {
+  content: '$ ls -la ~/projects/' "\A" '────────────────────────────────────────' "\A";
+  white-space: pre;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.projects-title::after {
+  display: none;
+}
+
+.projects-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  position: relative;
+  z-index: 10;
+}
+
+/* Terminal Project Card */
+.project-card {
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  padding: 0;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.project-card::before {
+  display: none;
+}
+
+.project-card:hover {
+  border-color: #33ff33;
+  box-shadow: 
+    0 0 15px rgba(51, 255, 51, 0.15),
+    0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Project Header - Terminal Style */
+.project-header {
+  background: linear-gradient(180deg, #2a2a2a 0%, #222222 100%);
+  border-bottom: 1px solid #333;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.project-header::before {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #ff5f57;
+  border-radius: 50%;
+  box-shadow: 
+    18px 0 0 #febc2e,
+    36px 0 0 #28c840;
+}
+
+.project-card h2 {
+  font-size: 1rem;
+  color: #33ff33;
+  margin: 0;
+  margin-left: auto;
+  font-weight: 700;
+  position: static;
+  transform: none;
+  letter-spacing: 0.5px;
+  text-shadow: 0 0 8px rgba(51, 255, 51, 0.4);
+}
+
+.project-card h2::before {
+  display: none;
+}
+
+.project-subtitle {
+  display: none;
+}
+
+/* Project Content */
+.project-description {
+  color: #ccc;
+  line-height: 1.8;
+  margin: 0;
+  padding: 1.5rem 1.75rem;
+  font-size: 1rem;
+  border-bottom: 1px dashed #333;
+}
+
+.project-description::before {
+  content: '$ cat README.md' "\A\A";
+  white-space: pre;
+  color: #33ff33;
+  display: block;
+  font-size: 0.95rem;
+}
+
+.tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding: 1.25rem 1.75rem;
+  margin: 0;
+  border-bottom: 1px dashed #333;
+}
+
+.tech-stack::before {
+  content: 'DEPENDENCIES:';
+  color: #666;
+  font-size: 0.85rem;
+  width: 100%;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.tech-tag {
+  background: rgba(0, 191, 255, 0.1);
+  border: 1px solid #00bfff;
+  color: #00bfff;
+  padding: 0.3rem 0.65rem;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+.project-highlights {
+  list-style: none;
+  padding: 1.25rem 1.75rem 1.5rem 1.75rem;
+  margin: 0;
+}
+
+.project-highlights::before {
+  content: '$ ./features.sh';
+  color: #33ff33;
+  display: block;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+.project-highlights li {
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+  padding-left: 0;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.project-highlights li::before {
+  content: '  [✓] ';
+  color: #28c840;
+}
+
+/* Skills Section */
+.skills-section {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+}
+
+.skills-section::before {
+  content: '$ neofetch --skills' "\A" '────────────────────────────────────────';
+  white-space: pre;
+  display: block;
+  color: #33ff33;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+}
+
+.skills-title {
+  display: none;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.skill-category {
+  padding: 0;
+}
+
+.skill-category h3 {
+  color: #ffff66;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px dashed #333;
+}
+
+.skill-category h3::before {
+  content: '├── ';
+  color: #33ff33;
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: normal;
+  border-radius: 0;
+}
+
+.skill-tag::before {
+  content: '│   ';
+  color: #444;
+}
+
+.skill-tag:hover {
+  color: #33ff33;
+  background: transparent;
+}
+
+.skill-tag.practice {
+  color: #ffff66;
+  background: transparent;
+  border: none;
+}
+
+@media (max-width: 768px) {
+  .projects-container {
+    padding: 80px 1rem 2rem 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .project-description,
+  .tech-stack,
+  .project-highlights {
+    padding: 1rem 1.25rem;
+  }
+}

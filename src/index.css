@@ -1,0 +1,60 @@
+html {
+  scroll-behavior: smooth;
+  overflow: hidden;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: 'Courier New', 'Consolas', 'Monaco', 'Liberation Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #0a0a0a;
+  color: #33ff33;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+code {
+  font-family: 'Courier New', 'Consolas', 'Monaco', 'Liberation Mono', monospace;
+}
+
+/* Terminal scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #111;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #33ff33;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #28cc28;
+}
+
+/* Selection color */
+::selection {
+  background: #33ff33;
+  color: #0a0a0a;
+}
+
+/* Global link styling */
+a {
+  color: #00bfff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #33ff33;
+  text-decoration: underline;
+}

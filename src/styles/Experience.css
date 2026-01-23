@@ -1,0 +1,309 @@
+/* Terminal Theme - Experience (Improved Readability) */
+.experience-container {
+  min-height: 100vh;
+  padding: 100px 2rem 4rem 2rem;
+  background: #0a0a0a;
+  color: #33ff33;
+  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* Subtle CRT Scanlines */
+.experience-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.1),
+    rgba(0, 0, 0, 0.1) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+.experience-container::after {
+  display: none;
+}
+
+.experience-title {
+  font-size: 1.1rem;
+  text-align: left;
+  margin-bottom: 2.5rem;
+  color: #33ff33;
+  font-weight: normal;
+  letter-spacing: 0.5px;
+  position: relative;
+  z-index: 10;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: 1.8;
+}
+
+.experience-title::before {
+  content: '$ cat /var/log/experience.log' "\A" '────────────────────────────────────────' "\A";
+  white-space: pre;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.experience-title::after {
+  display: none;
+}
+
+.timeline {
+  max-width: 900px;
+  margin: 0 auto 3rem auto;
+  position: relative;
+  z-index: 10;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #33ff33 0%, #00aa00 100%);
+  border-radius: 2px;
+}
+
+/* Terminal Card */
+.experience-card {
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  padding: 1.75rem;
+  margin-bottom: 1.75rem;
+  margin-left: 25px;
+  position: relative;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.experience-card::before {
+  content: '>';
+  position: absolute;
+  left: -18px;
+  top: 1.75rem;
+  color: #33ff33;
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+
+.experience-card::after {
+  display: none;
+}
+
+.experience-card:hover {
+  border-color: #33ff33;
+  box-shadow: 
+    0 0 15px rgba(51, 255, 51, 0.15),
+    0 8px 30px rgba(0, 0, 0, 0.4);
+  transform: translateX(4px);
+}
+
+.experience-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.experience-header h2 {
+  font-size: 1.2rem;
+  color: #ffff66;
+  margin-bottom: 0.4rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.experience-header h2::before {
+  content: '[JOB] ';
+  color: #666;
+}
+
+.experience-header h3 {
+  font-size: 1.1rem;
+  color: #00bfff;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+}
+
+.experience-header h3::before {
+  content: '@';
+  color: #33ff33;
+  margin-right: 4px;
+}
+
+.period {
+  color: #999;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  font-weight: normal;
+}
+
+.period::before {
+  content: 'DATE: ';
+  color: #666;
+}
+
+.period::after {
+  display: none;
+}
+
+.location {
+  color: #777;
+  font-size: 0.9rem;
+}
+
+.location::before {
+  content: 'LOC:  ';
+  color: #666;
+}
+
+.experience-description {
+  color: #ccc;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid #333;
+}
+
+.achievements {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.25rem;
+}
+
+.achievements li {
+  color: #e0e0e0;
+  line-height: 1.7;
+  margin-bottom: 0.6rem;
+  padding-left: 0;
+  position: relative;
+  font-size: 0.95rem;
+}
+
+.achievements li::before {
+  content: '  ✓ ';
+  color: #28c840;
+}
+
+.stack-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px dashed #333;
+}
+
+.stack-tags::before {
+  content: 'STACK: ';
+  color: #666;
+  font-size: 0.85rem;
+  width: 100%;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.stack-tag {
+  background: rgba(51, 255, 51, 0.1);
+  border: 1px solid #33ff33;
+  color: #33ff33;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border-radius: 4px;
+}
+
+/* How I Work Section */
+.how-i-work {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+  padding: 2rem;
+  background: #111111;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+}
+
+.how-i-work::before {
+  content: '$ ./how_i_work.sh' "\A" '────────────────────────────────────────';
+  white-space: pre;
+  display: block;
+  color: #33ff33;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+}
+
+.how-title {
+  display: none;
+}
+
+.work-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.25rem;
+}
+
+.work-item {
+  padding: 1.5rem;
+  background: rgba(51, 255, 51, 0.03);
+  border: 1px dashed #333;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.work-item:hover {
+  border-color: #33ff33;
+  background: rgba(51, 255, 51, 0.08);
+}
+
+.work-item h3 {
+  color: #ffff66;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.work-item h3::before {
+  content: '> ';
+  color: #33ff33;
+}
+
+.work-item p {
+  color: #aaa;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  .experience-container {
+    padding: 80px 1rem 2rem 1rem;
+  }
+
+  .work-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-card {
+    margin-left: 18px;
+    padding: 1.25rem;
+  }
+
+  .experience-card::before {
+    left: -14px;
+  }
+}
