@@ -17,8 +17,26 @@ const Home = () => {
           </div>
           
           <p className="description">
-            CS student who ships reliable, user-facing software. React/TypeScript on the web, Node/Express on the service side. Focus on solid auth, validated APIs, safe webhooks, and observability.
+            Computing student who ships reliable, user-facing software. React/TypeScript on the web, Node/Express on the service side. Focus on solid auth, validated APIs, safe webhooks, and observability.
           </p>
+
+          <motion.div 
+            className="education-section"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            <div className="education-item">
+              <span className="edu-degree">Bachelor of Computing (Honours)</span>
+              <span className="edu-school">Queen's University</span>
+              <span className="edu-date">Expected 2027</span>
+            </div>
+            <div className="education-item">
+              <span className="edu-degree">Certificate of Business</span>
+              <span className="edu-school">Smith School of Business, Queen's University</span>
+              <span className="edu-date">Expected 2027</span>
+            </div>
+          </motion.div>
 
           <motion.div 
             className="social-links"
