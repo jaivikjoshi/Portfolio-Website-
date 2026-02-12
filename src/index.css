@@ -1,3 +1,112 @@
+/* ============================================
+   Theme Variables
+   ============================================ */
+
+/* Light theme (default) */
+:root,
+[data-theme="light"] {
+  /* Backgrounds */
+  --color-bg: #f0f2f5;
+  --color-surface: #ffffff;
+  --color-surface-hover: #f8f9fa;
+  --color-titlebar: #f0f0f0;
+  --color-titlebar-end: #e8e8e8;
+
+  /* Borders */
+  --color-border: #d0d5dd;
+  --color-border-subtle: #e0e0e0;
+
+  /* Text */
+  --color-text: #2d3748;
+  --color-text-secondary: #4a5568;
+  --color-text-muted: #718096;
+  --color-text-subtle: #a0aec0;
+  --color-text-faint: #cbd5e0;
+
+  /* Accent (blue - replaces green) */
+  --color-accent: #0ea5e9;
+  --color-accent-darker: #0284c7;
+  --color-accent-rgb: 14, 165, 233;
+  --color-accent-contrast: #ffffff;
+
+  /* Semantic colors */
+  --color-link: #0369a1;
+  --color-yellow: #d97706;
+  --color-success: #16a34a;
+  --color-success-rgb: 22, 163, 74;
+  --color-error: #dc2626;
+  --color-error-rgb: 220, 38, 38;
+
+  /* Scrollbar */
+  --color-scrollbar-track: #e2e8f0;
+  --color-placeholder: #a0aec0;
+
+  /* Shadows */
+  --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+  --shadow-card-hover: 0 4px 20px rgba(0, 0, 0, 0.1);
+  --shadow-heavy: 0 8px 32px rgba(0, 0, 0, 0.12);
+
+  /* Effects (disabled in light mode) */
+  --scanline-opacity: 0;
+  --glow-opacity: 0;
+  --card-glow: 0 0 0 transparent;
+  --text-glow: 0 0 0 transparent;
+}
+
+/* Dark theme */
+[data-theme="dark"] {
+  /* Backgrounds */
+  --color-bg: #0a0a0a;
+  --color-surface: #111111;
+  --color-surface-hover: #1a1a1a;
+  --color-titlebar: #2a2a2a;
+  --color-titlebar-end: #222222;
+
+  /* Borders */
+  --color-border: #2a2a2a;
+  --color-border-subtle: #333333;
+
+  /* Text */
+  --color-text: #e0e0e0;
+  --color-text-secondary: #cccccc;
+  --color-text-muted: #888888;
+  --color-text-subtle: #666666;
+  --color-text-faint: #444444;
+
+  /* Accent (blue) */
+  --color-accent: #0ea5e9;
+  --color-accent-darker: #38bdf8;
+  --color-accent-rgb: 14, 165, 233;
+  --color-accent-contrast: #0a0a0a;
+
+  /* Semantic colors */
+  --color-link: #0ea5e9;
+  --color-yellow: #ffff66;
+  --color-success: #28c840;
+  --color-success-rgb: 40, 200, 64;
+  --color-error: #ff5f57;
+  --color-error-rgb: 255, 95, 87;
+
+  /* Scrollbar */
+  --color-scrollbar-track: #111111;
+  --color-placeholder: #555555;
+
+  /* Shadows */
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --shadow-card-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 20px 60px rgba(0, 0, 0, 0.5);
+
+  /* Effects (enabled in dark mode) */
+  --scanline-opacity: 1;
+  --glow-opacity: 1;
+  --card-glow: 0 0 40px rgba(14, 165, 233, 0.08);
+  --text-glow: 0 0 8px rgba(14, 165, 233, 0.4);
+}
+
+/* ============================================
+   Global Styles
+   ============================================ */
+
 html {
   scroll-behavior: smooth;
   overflow: hidden;
@@ -11,17 +120,19 @@ html, body, #root {
 
 body {
   margin: 0;
-  font-family: 'Courier New', 'Consolas', 'Monaco', 'Liberation Mono', monospace;
+  font-family: 'Source Code Pro', 'Courier New', 'Consolas', 'Monaco', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #0a0a0a;
-  color: #33ff33;
+  background: var(--color-bg);
+  color: var(--color-accent);
   font-size: 16px;
+  font-weight: 500;
   line-height: 1.6;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
 code {
-  font-family: 'Courier New', 'Consolas', 'Monaco', 'Liberation Mono', monospace;
+  font-family: 'Source Code Pro', 'Courier New', 'Consolas', 'Monaco', monospace;
 }
 
 /* Terminal scrollbar */
@@ -30,31 +141,31 @@ code {
 }
 
 ::-webkit-scrollbar-track {
-  background: #111;
+  background: var(--color-scrollbar-track);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #33ff33;
+  background: var(--color-accent);
   border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #28cc28;
+  background: var(--color-accent-darker);
 }
 
 /* Selection color */
 ::selection {
-  background: #33ff33;
-  color: #0a0a0a;
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 /* Global link styling */
 a {
-  color: #00bfff;
+  color: var(--color-link);
   text-decoration: none;
 }
 
 a:hover {
-  color: #33ff33;
+  color: var(--color-accent);
   text-decoration: underline;
 }

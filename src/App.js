@@ -1,12 +1,15 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import '@fortawesome/fontawesome-free/css/all.min.css';
+import { useTheme } from './ThemeContext';
 import './App.css';
 
 // Page imports
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Experience from './pages/Experience';
+import Research from './pages/Research';
+import CaseStudies from './pages/CaseStudies';
 import Contact from './pages/Contact';
 
 function App() {
@@ -14,14 +17,19 @@ function App() {
   const homeRef = useRef(null);
   const projectsRef = useRef(null);
   const experienceRef = useRef(null);
+  const researchRef = useRef(null);
+  const caseStudiesRef = useRef(null);
   const contactRef = useRef(null);
   const [activeSection, setActiveSection] = useState(0);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   const sections = [
     { ref: homeRef, name: 'home' },
     { ref: experienceRef, name: 'experience' },
     { ref: projectsRef, name: 'projects' },
+    { ref: researchRef, name: 'research' },
+    { ref: caseStudiesRef, name: 'cases' },
     { ref: contactRef, name: 'contact' }
   ];
 
@@ -92,11 +100,33 @@ function App() {
           </button>
           <button 
             className={activeSection === 3 ? 'active' : ''} 
-            onClick={() => scrollToSection(contactRef, 3)}
+            onClick={() => scrollToSection(researchRef, 3)}
+          >
+            ./RESEARCH
+          </button>
+          <button 
+            className={activeSection === 4 ? 'active' : ''} 
+            onClick={() => scrollToSection(caseStudiesRef, 4)}
+          >
+            ./CASES
+          </button>
+          <button 
+            className={activeSection === 5 ? 'active' : ''} 
+            onClick={() => scrollToSection(contactRef, 5)}
           >
             ./CONTACT
           </button>
         </div>
+
+        {/* Theme Toggle */}
+        <button 
+          className="theme-toggle" 
+          onClick={toggleTheme} 
+          aria-label="Toggle theme"
+          title={theme === 'light' ? 'Switch to dark mode' : 'Switch to light mode'}
+        >
+          <i className={theme === 'light' ? 'fas fa-moon' : 'fas fa-sun'}></i>
+        </button>
 
         {/* Hamburger Menu Button */}
         <button 
@@ -141,7 +171,19 @@ function App() {
               </button>
               <button 
                 className={activeSection === 3 ? 'active' : ''} 
-                onClick={() => handleNavClick(contactRef, 3)}
+                onClick={() => handleNavClick(researchRef, 3)}
+              >
+                ./RESEARCH
+              </button>
+              <button 
+                className={activeSection === 4 ? 'active' : ''} 
+                onClick={() => handleNavClick(caseStudiesRef, 4)}
+              >
+                ./CASES
+              </button>
+              <button 
+                className={activeSection === 5 ? 'active' : ''} 
+                onClick={() => handleNavClick(contactRef, 5)}
               >
                 ./CONTACT
               </button>
@@ -201,6 +243,14 @@ function App() {
         
         <section ref={projectsRef} className="horizontal-section" id="projects">
           <Projects />
+        </section>
+
+        <section ref={researchRef} className="horizontal-section" id="research">
+          <Research />
+        </section>
+
+        <section ref={caseStudiesRef} className="horizontal-section" id="cases">
+          <CaseStudies />
         </section>
         
         <section ref={contactRef} className="horizontal-section" id="contact">

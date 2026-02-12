@@ -1,14 +1,15 @@
-/* Terminal Theme - Contact (Improved Readability) */
+/* Terminal Theme - Contact */
 .contact-container {
   min-height: 100vh;
   padding: 100px 2rem 4rem 2rem;
-  background: #0a0a0a;
-  color: #33ff33;
-  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  background: var(--color-bg);
+  color: var(--color-accent);
+  font-family: 'Source Code Pro', 'Courier New', 'Consolas', 'Monaco', monospace;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background 0.3s ease;
 }
 
 /* Subtle CRT Scanlines */
@@ -28,6 +29,7 @@
   );
   pointer-events: none;
   z-index: 100;
+  opacity: var(--scanline-opacity);
 }
 
 .contact-container::after {
@@ -41,22 +43,23 @@
   width: 100%;
   position: relative;
   z-index: 10;
-  background: #111111;
-  border: 1px solid #2a2a2a;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 
-    0 0 40px rgba(51, 255, 51, 0.08),
-    0 20px 60px rgba(0, 0, 0, 0.5);
+    var(--card-glow),
+    var(--shadow-heavy);
+  transition: background 0.3s ease, border-color 0.3s ease;
 }
 
 /* Terminal Header */
 .contact-content::before {
   content: '';
   display: block;
-  background: linear-gradient(180deg, #2a2a2a 0%, #222222 100%);
+  background-color: var(--color-titlebar);
   padding: 14px;
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--color-border-subtle);
   background-image: radial-gradient(circle, #ff5f57 7px, transparent 7px),
                     radial-gradient(circle, #febc2e 7px, transparent 7px),
                     radial-gradient(circle, #28c840 7px, transparent 7px);
@@ -71,15 +74,15 @@
   flex-direction: column;
   padding: 2rem;
   background: transparent;
-  color: #33ff33;
-  border-bottom: 1px dashed #333;
+  color: var(--color-accent);
+  border-bottom: 1px dashed var(--color-border-subtle);
 }
 
 .contact-info h1 {
   font-size: 1rem;
-  color: #33ff33;
+  color: var(--color-accent);
   margin-bottom: 1.25rem;
-  font-weight: normal;
+  font-weight: 500;
   letter-spacing: 0.5px;
   line-height: 1.8;
 }
@@ -100,7 +103,7 @@
 
 .info-details p {
   font-size: 1.05rem;
-  color: #ccc;
+  color: var(--color-text-secondary);
   margin-bottom: 0.6rem;
   display: flex;
   align-items: center;
@@ -113,7 +116,7 @@
 
 .info-details p::before {
   content: '> ';
-  color: #33ff33;
+  color: var(--color-accent);
   margin-right: 0.75rem;
 }
 
@@ -131,7 +134,7 @@
 
 .social-links-horizontal::before {
   content: '$ ls ~/social/';
-  color: #33ff33;
+  color: var(--color-accent);
   display: block;
   margin-bottom: 0.75rem;
   font-size: 1rem;
@@ -145,16 +148,16 @@
   background: transparent;
   border: none;
   border-radius: 0;
-  color: #00bfff;
+  color: var(--color-link);
   text-decoration: none;
   font-size: 1rem;
-  font-weight: normal;
+  font-weight: 500;
   transition: all 0.2s ease;
 }
 
 .social-link-btn::before {
   content: '-rw-r--r--';
-  color: #666;
+  color: var(--color-text-subtle);
   font-size: 0.9rem;
 }
 
@@ -163,7 +166,7 @@
 }
 
 .social-link-btn:hover {
-  color: #33ff33;
+  color: var(--color-accent);
   background: transparent;
   transform: none;
   padding-left: 0.5rem;
@@ -178,7 +181,7 @@
 
 .contact-form::before {
   content: '$ nano message.txt';
-  color: #33ff33;
+  color: var(--color-accent);
   display: block;
   margin-bottom: 1.5rem;
   font-size: 1rem;
@@ -194,9 +197,9 @@
 
 .form-group label {
   display: block;
-  color: #888;
+  color: var(--color-text-muted);
   font-size: 0.9rem;
-  font-weight: normal;
+  font-weight: 500;
   margin-bottom: 0.5rem;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -204,17 +207,17 @@
 
 .form-group label::before {
   content: '# ';
-  color: #666;
+  color: var(--color-text-subtle);
 }
 
 .form-group input,
 .form-group textarea {
   width: 100%;
-  background: #0a0a0a;
-  border: 1px solid #333;
-  color: #e0e0e0;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border-subtle);
+  color: var(--color-text);
   padding: 1rem;
-  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  font-family: 'Source Code Pro', 'Courier New', 'Consolas', 'Monaco', monospace;
   font-size: 1rem;
   border-radius: 4px;
   transition: all 0.2s ease;
@@ -223,14 +226,14 @@
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-  color: #555;
+  color: var(--color-placeholder);
 }
 
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #33ff33;
-  box-shadow: 0 0 15px rgba(51, 255, 51, 0.15);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 15px rgba(var(--color-accent-rgb), 0.15);
 }
 
 .form-group textarea {
@@ -243,11 +246,11 @@
   width: 100%;
   padding: 1rem 2rem;
   background: transparent;
-  border: 2px solid #33ff33;
-  color: #33ff33;
-  font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+  border: 2px solid var(--color-accent);
+  color: var(--color-accent);
+  font-family: 'Source Code Pro', 'Courier New', 'Consolas', 'Monaco', monospace;
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   border-radius: 4px;
   transition: all 0.3s ease;
@@ -260,9 +263,9 @@
 }
 
 .submit-btn:hover:not(:disabled) {
-  background: #33ff33;
-  color: #0a0a0a;
-  box-shadow: 0 0 20px rgba(51, 255, 51, 0.4);
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+  box-shadow: 0 0 20px rgba(var(--color-accent-rgb), 0.4);
   transform: translateY(-2px);
 }
 
@@ -283,15 +286,15 @@
 }
 
 .form-status.success {
-  background: rgba(40, 200, 64, 0.15);
-  border: 1px solid #28c840;
-  color: #28c840;
+  background: rgba(var(--color-success-rgb), 0.15);
+  border: 1px solid var(--color-success);
+  color: var(--color-success);
 }
 
 .form-status.error {
-  background: rgba(255, 95, 87, 0.15);
-  border: 1px solid #ff5f57;
-  color: #ff5f57;
+  background: rgba(var(--color-error-rgb), 0.15);
+  border: 1px solid var(--color-error);
+  color: var(--color-error);
 }
 
 .form-status i {
